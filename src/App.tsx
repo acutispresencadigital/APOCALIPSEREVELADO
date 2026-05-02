@@ -61,7 +61,7 @@ export default function App() {
     return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
   };
 
-  const checkoutUrl = "#";
+  const checkoutUrl = "https://pay.cakto.com.br/3ba47md_870528";
 
   return (
     <div className="min-h-screen font-sans bg-wine-dark text-white selection:bg-brand selection:text-white">
@@ -88,21 +88,23 @@ export default function App() {
           transition={{ duration: 1 }}
           className="w-full mb-10"
         >
-          {/* VERSÃO MOBILE: Imagem vertical/quadrada */}
-          <img 
-            src="https://i.imgur.com/ZvPSxcG.jpeg" 
-            alt="Apocalipse Mobile" 
-            className="block md:hidden w-full h-auto object-cover"
-            referrerPolicy="no-referrer"
-          />
-          
-          {/* VERSÃO DESKTOP: Imagem horizontal */}
-          <img 
-            src="https://i.imgur.com/FD1RX7P.jpeg" 
-            alt="Apocalipse Desktop" 
-            className="hidden md:block w-full h-auto max-h-[600px] object-cover object-center"
-            referrerPolicy="no-referrer"
-          />
+          <a href={checkoutUrl} className="block w-full cursor-pointer">
+            {/* VERSÃO MOBILE: Imagem vertical/quadrada */}
+            <img 
+              src="https://i.imgur.com/ZvPSxcG.jpeg" 
+              alt="Apocalipse Mobile" 
+              className="block md:hidden w-full h-auto object-cover"
+              referrerPolicy="no-referrer"
+            />
+            
+            {/* VERSÃO DESKTOP: Imagem horizontal */}
+            <img 
+              src="https://i.imgur.com/FD1RX7P.jpeg" 
+              alt="Apocalipse Desktop" 
+              className="hidden md:block w-full h-auto max-h-[600px] object-cover object-center"
+              referrerPolicy="no-referrer"
+            />
+          </a>
         </motion.div>
 
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -179,7 +181,7 @@ export default function App() {
             transition={{ duration: 0.5, delay: 0.8 }}
           >
             <a 
-              href="#oferta"
+              href={checkoutUrl}
               className="inline-flex flex-col items-center justify-center gap-1 px-12 py-6 bg-brand hover:bg-brand-hover text-white rounded-2xl aggressive-shadow transition-all transform hover:scale-105 active:scale-95 text-center"
             >
               <div className="flex items-center gap-2 text-xl md:text-2xl font-black uppercase tracking-tighter">
@@ -236,7 +238,7 @@ export default function App() {
             className="mt-16 pt-10 border-t border-white/5"
           >
             <a 
-              href="#oferta"
+              href={checkoutUrl}
               className="w-full inline-flex flex-col items-center justify-center gap-1 px-8 py-6 bg-brand hover:bg-brand-hover text-white rounded-2xl aggressive-shadow transition-all transform hover:scale-105 active:scale-95 text-center"
             >
               <div className="flex items-center gap-2 text-xl md:text-2xl font-black uppercase tracking-tighter">
@@ -281,7 +283,7 @@ export default function App() {
 
             <div className="pt-8">
               <a 
-                href="#oferta"
+                href={checkoutUrl}
                 className="inline-flex flex-col items-center justify-center gap-1 px-12 py-6 bg-brand hover:bg-brand-hover text-white rounded-2xl aggressive-shadow transition-all transform hover:scale-105 active:scale-95 text-center max-w-full"
               >
                 <div className="flex items-center gap-2 text-xl md:text-3xl font-black uppercase tracking-tighter">
@@ -302,14 +304,16 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-8 items-start">
             {/* Visual Column */}
             <div className="space-y-4 md:sticky md:top-24">
-              <div className="wine-card p-1 aspect-[4/5] relative overflow-hidden border-brand/50 aggressive-shadow group">
-                <img 
-                  src="https://i.imgur.com/4sO61ae.jpeg" 
-                  alt="Mockup Apocalipse" 
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" 
-                  referrerPolicy="no-referrer"
-                />
-              </div>
+              <a href={checkoutUrl} className="block group">
+                <div className="wine-card p-1 aspect-[4/5] relative overflow-hidden border-brand/50 aggressive-shadow group">
+                  <img 
+                    src="https://i.imgur.com/4sO61ae.jpeg" 
+                    alt="Mockup Apocalipse" 
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" 
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              </a>
               <div className="wine-card p-4 flex flex-col items-center justify-center gap-1 border-brand/20">
                 <div className="text-accent-green font-black uppercase text-[10px] tracking-widest animate-pulse">● Acesso Imediato</div>
                 <div className="text-white/30 text-[9px] font-bold uppercase tracking-widest">Envio via e-mail após confirmação</div>
