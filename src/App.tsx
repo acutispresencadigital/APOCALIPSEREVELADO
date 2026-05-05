@@ -91,7 +91,7 @@ export default function App() {
           <a href={checkoutUrl} className="block w-full cursor-pointer">
             {/* VERSÃO MOBILE: Imagem vertical/quadrada */}
             <img 
-              src="https://i.imgur.com/ZvPSxcG.jpeg" 
+              src="https://i.ibb.co/3YdxDgwS/BANNER-SITE-1.webp" 
               alt="Apocalipse Mobile" 
               className="block md:hidden w-full h-auto object-cover"
               referrerPolicy="no-referrer"
@@ -99,7 +99,7 @@ export default function App() {
             
             {/* VERSÃO DESKTOP: Imagem horizontal */}
             <img 
-              src="https://i.imgur.com/FD1RX7P.jpeg" 
+              src="https://i.ibb.co/p6pDyDKm/BANNER-SITE-PC.webp" 
               alt="Apocalipse Desktop" 
               className="hidden md:block w-full h-auto max-h-[600px] object-cover object-center"
               referrerPolicy="no-referrer"
@@ -161,14 +161,14 @@ export default function App() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 mb-12"
+            className="flex flex-col items-start gap-3 mb-12 max-w-fit mx-auto"
           >
             {[
-              "OS 4 CAVALEIROS",
-              "AS 7 TROMBETAS",
-              "O ANTICRISTO"
+              "O verdadeiro significado dos 4 Cavaleiros",
+              "O que realmente são as 7 Trombetas",
+              "Quem é o Anticristo segundo a Bíblia"
             ].map((bullet, idx) => (
-              <div key={idx} className="flex items-center gap-2 text-sm md:text-lg font-black uppercase tracking-tight text-white">
+              <div key={idx} className="flex items-center gap-2 text-base md:text-xl font-bold text-white/90">
                 <ChristianCross size={18} className="text-brand shrink-0" />
                 {bullet}
               </div>
@@ -305,11 +305,11 @@ export default function App() {
             {/* Visual Column */}
             <div className="space-y-4 md:sticky md:top-24">
               <a href={checkoutUrl} className="block group">
-                <div className="wine-card p-1 aspect-[4/5] relative overflow-hidden border-brand/50 aggressive-shadow group">
+                <div className="wine-card p-1 relative overflow-hidden border-brand/50 aggressive-shadow group">
                   <img 
-                    src="https://i.imgur.com/4sO61ae.jpeg" 
+                    src="https://i.ibb.co/3YdxDgwS/BANNER-SITE-1.webp" 
                     alt="Mockup Apocalipse" 
-                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" 
+                    className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700" 
                     referrerPolicy="no-referrer"
                   />
                 </div>
