@@ -25,6 +25,28 @@
     /></noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+    (function() {
+      const updateLinks = () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.toString()) {
+          document.querySelectorAll('a[href*="cakto.com.br"]').forEach(link => {
+            try {
+              const url = new URL(link.href);
+              urlParams.forEach((value, key) => {
+                url.searchParams.set(key, value);
+              });
+              link.href = url.toString();
+            } catch (e) {}
+          });
+        }
+      };
+
+      window.addEventListener('load', updateLinks);
+      const observer = new MutationObserver(updateLinks);
+      observer.observe(document.body, { childList: true, subtree: true });
+    })();
+    </script>
   </body>
 </html>
 
