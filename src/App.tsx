@@ -115,7 +115,7 @@ export default function App() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="md:hidden font-sans text-6xl font-black mb-6 leading-[0.95] tracking-tighter uppercase"
           >
-            3 <span className="text-brand">eBooks</span>
+            3 <span className="text-brand">livros</span>
           </motion.h1>
 
           {/* HEADLINE DESKTOP (Estilo Referência) */}
@@ -126,7 +126,7 @@ export default function App() {
             className="hidden md:block font-sans text-8xl font-black mb-10 leading-[0.9] tracking-tighter uppercase"
           >
             <span className="text-brand">Apocalipse</span> revelado <br />
-            em 3 eBooks
+            em 3 livros
           </motion.h1>
 
           {/* SUBHEADLINE MOBILE (Estilo Referência) */}
@@ -330,9 +330,9 @@ export default function App() {
 
               <div className="space-y-2">
                 {[
-                  { name: "Ebook: Os 4 Cavaleiros do Apocalipse", old: "37" },
-                  { name: "Ebook: As 7 Trombetas do Fim", old: "37" },
-                  { name: "Ebook: A Revelação do Anticristo", old: "37" },
+                  { name: "Livro: Os 4 Cavaleiros do Apocalipse", old: "37" },
+                  { name: "Livro: As 7 Trombetas do Fim", old: "37" },
+                  { name: "Livro: A Revelação do Anticristo", old: "37" },
                   { name: "Acesso Imediato e Vitalício", status: "Incluso" },
                   { name: "Leitura Simples e Direta", status: "Incluso" },
                   { name: "Conteúdo 100% Baseado na Bíblia", status: "Incluso" }
