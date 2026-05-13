@@ -70,7 +70,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-center gap-2 md:gap-6">
           <div className="flex items-center gap-2 text-white font-black text-[10px] md:text-lg uppercase tracking-tighter text-center">
             <Zap size={20} className="fill-white animate-bounce shrink-0" />
-            O DESCONTO ESPECIAL TERMINA EM:
+            RECEBA SEUS 3 LIVROS DIGITAIS EM:
           </div>
           <div className="flex items-center gap-2 text-white font-mono font-black text-[13px] md:text-2xl bg-black/30 px-4 py-1 rounded-full border border-white/30 shadow-inner">
             <Timer size={24} className="text-white shrink-0" />
@@ -113,9 +113,9 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="md:hidden font-sans text-6xl font-black mb-6 leading-[0.95] tracking-tighter uppercase"
+            className="md:hidden font-sans text-4xl font-black mb-6 leading-tight tracking-tighter uppercase"
           >
-            3 <span className="text-brand">livros</span>
+            Entenda o <span className="text-brand">Apocalipse</span> de forma simples, clara e baseada na Bíblia
           </motion.h1>
 
           {/* HEADLINE DESKTOP (Estilo Referência) */}
@@ -123,10 +123,9 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden md:block font-sans text-8xl font-black mb-10 leading-[0.9] tracking-tighter uppercase"
+            className="hidden md:block font-sans text-7xl font-black mb-10 leading-[0.9] tracking-tighter uppercase"
           >
-            <span className="text-brand">Apocalipse</span> revelado <br />
-            em 3 livros
+            Entenda o <span className="text-brand">Apocalipse</span> de forma simples, <br /> clara e baseada na Bíblia
           </motion.h1>
 
           {/* SUBHEADLINE MOBILE (Estilo Referência) */}
@@ -134,13 +133,10 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="md:hidden mb-8 space-y-1"
+            className="md:hidden mb-8 space-y-2"
           >
-            <p className="text-2xl text-white font-bold leading-tight">
-              Explicado direto da Bíblia
-            </p>
-            <p className="text-brand font-black text-lg uppercase">
-              Sem linguagem difícil
+            <p className="text-lg text-white font-bold leading-tight">
+              Receba 3 livros digitais com explicações simples e baseadas na Bíblia por apenas <span className="text-brand">R$19,90</span>.
             </p>
           </motion.div>
 
@@ -149,10 +145,10 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="hidden md:block mb-12"
+            className="hidden md:block mb-12 max-w-3xl mx-auto"
           >
-            <p className="text-3xl text-white font-bold leading-tight max-w-2xl mx-auto">
-              Aprenda a forma correta de entender as profecias e <span className="text-brand">DOMINE</span> o Livro de Revelação de uma vez por todas!
+            <p className="text-2xl text-white font-bold leading-tight">
+              Receba 3 livros digitais com explicações simples e baseadas na Bíblia por apenas <span className="text-brand font-black">R$19,90</span>.
             </p>
           </motion.div>
 
@@ -161,7 +157,7 @@ export default function App() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex flex-col items-start gap-3 mb-12 max-w-fit mx-auto"
+            className="flex flex-col items-start gap-4 mb-12 max-w-fit mx-auto text-left"
           >
             {[
               "O verdadeiro significado dos 4 Cavaleiros",
@@ -179,6 +175,7 @@ export default function App() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.8 }}
+            className="w-full sm:w-auto"
           >
             <a 
               href={checkoutUrl}
