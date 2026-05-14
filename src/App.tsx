@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { 
   BookOpen, 
@@ -20,8 +20,10 @@ import {
   Globe,
   Zap,
   Lock,
-  Plus
+  Plus,
+  ChevronDown
 } from "lucide-react";
+import { AnimatePresence } from "motion/react";
 
 const ChristianCross = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
   <svg 
@@ -43,6 +45,54 @@ const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
   transition: { duration: 0.6 }
+};
+
+interface FAQItemProps {
+  faq: { q: string; a: string };
+  index: number;
+}
+
+const FAQItem: React.FC<FAQItemProps> = ({ faq, index }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="wine-card overflow-hidden border-white/5"
+    >
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full p-5 md:p-6 flex items-center justify-between text-left group"
+      >
+        <span className="font-bold text-base md:text-lg text-white/90 group-hover:text-white transition-colors">
+          {faq.q}
+        </span>
+        <ChevronDown 
+          size={20} 
+          className={`text-brand transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+        />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="px-5 pb-6 pt-0 md:px-6 md:pb-8">
+              <div className="h-px w-full bg-white/5 mb-4" />
+              <p className="text-white/70 leading-relaxed font-medium">
+                {faq.a}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
 };
 
 export default function App() {
@@ -379,6 +429,60 @@ export default function App() {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section (Dúvidas Frequentes) */}
+      <section className="py-12 md:py-24 px-4 bg-black/20 border-t border-white/5">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4 italic">
+              DÚVIDAS <span className="text-brand">FREQUENTES</span>
+            </h2>
+            <p className="text-white/60 font-bold uppercase tracking-widest text-xs">
+              Tiramos as principais dúvidas sobre a coleção
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: "É livro físico ou digital?",
+                a: "É material digital. Você recebe acesso online após a confirmação do pagamento."
+              },
+              {
+                q: "Como recebo o acesso?",
+                a: "O acesso é liberado após o pagamento no e-mail informado na compra."
+              },
+              {
+                q: "Posso ler pelo celular?",
+                a: "Sim. Você pode acessar pelo celular, computador ou tablet."
+              },
+              {
+                q: "É pagamento único?",
+                a: "Sim. Você paga uma vez e recebe o acesso à coleção."
+              },
+              {
+                q: "Preciso ter conhecimento avançado da Bíblia?",
+                a: "Não. A coleção foi organizada para uma leitura simples e objetiva."
+              }
+            ].map((faq, i) => (
+              <FAQItem key={i} faq={faq} index={i} />
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-white/40 text-sm font-bold uppercase tracking-widest mb-6">
+              Ainda tem alguma dúvida?
+            </p>
+            <a 
+              href={checkoutUrl}
+              className="inline-flex items-center gap-2 text-brand hover:text-brand-hover font-black uppercase tracking-tighter text-lg md:text-xl group"
+            >
+              GARANTIR MEU ACESSO AGORA
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
         </div>
       </section>
