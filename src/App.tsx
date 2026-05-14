@@ -6,21 +6,10 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { 
-  BookOpen, 
-  Scroll, 
-  ShieldAlert, 
   CheckCircle2, 
-  XCircle,
   Timer,
-  Flame,
-  ShieldCheck,
   ArrowRight,
-  Sword,
-  Search,
-  Globe,
   Zap,
-  Lock,
-  Plus,
   ChevronDown
 } from "lucide-react";
 import { AnimatePresence } from "motion/react";
@@ -113,6 +102,12 @@ export default function App() {
 
   const checkoutUrl = "https://pay.cakto.com.br/3ba47md_870528";
 
+  const trackCheckout = () => {
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq('track', 'InitiateCheckout');
+    }
+  };
+
   return (
     <div className="min-h-screen font-sans bg-wine-dark text-white selection:bg-brand selection:text-white">
       {/* Header Countdown (Fixo Pequeno - Mais Chamativo) */}
@@ -138,7 +133,7 @@ export default function App() {
           transition={{ duration: 1 }}
           className="w-full mb-10"
         >
-          <a href={checkoutUrl} className="block w-full cursor-pointer">
+          <a href={checkoutUrl} onClick={trackCheckout} className="block w-full cursor-pointer">
             {/* VERSÃO MOBILE: Imagem vertical/quadrada */}
             <img 
               src="https://i.ibb.co/3YdxDgwS/BANNER-SITE-1.webp" 
@@ -229,6 +224,7 @@ export default function App() {
           >
             <a 
               href={checkoutUrl}
+              onClick={trackCheckout}
               className="inline-flex flex-col items-center justify-center gap-1 px-12 py-6 bg-brand hover:bg-brand-hover text-white rounded-2xl aggressive-shadow transition-all transform hover:scale-105 active:scale-95 text-center"
             >
               <div className="flex items-center gap-2 text-xl md:text-2xl font-black uppercase tracking-tighter">
@@ -286,6 +282,7 @@ export default function App() {
           >
             <a 
               href={checkoutUrl}
+              onClick={trackCheckout}
               className="w-full inline-flex flex-col items-center justify-center gap-1 px-8 py-6 bg-brand hover:bg-brand-hover text-white rounded-2xl aggressive-shadow transition-all transform hover:scale-105 active:scale-95 text-center"
             >
               <div className="flex items-center gap-2 text-xl md:text-2xl font-black uppercase tracking-tighter">
@@ -331,6 +328,7 @@ export default function App() {
             <div className="pt-8">
               <a 
                 href={checkoutUrl}
+                onClick={trackCheckout}
                 className="inline-flex flex-col items-center justify-center gap-1 px-12 py-6 bg-brand hover:bg-brand-hover text-white rounded-2xl aggressive-shadow transition-all transform hover:scale-105 active:scale-95 text-center max-w-full"
               >
                 <div className="flex items-center gap-2 text-xl md:text-3xl font-black uppercase tracking-tighter">
@@ -351,7 +349,7 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-8 items-start">
             {/* Visual Column */}
             <div className="space-y-4 md:sticky md:top-24">
-              <a href={checkoutUrl} className="block group">
+              <a href={checkoutUrl} onClick={trackCheckout} className="block group">
                 <div className="wine-card p-1 relative overflow-hidden border-brand/50 aggressive-shadow group">
                   <img 
                     src="https://i.ibb.co/3YdxDgwS/BANNER-SITE-1.webp" 
@@ -419,6 +417,7 @@ export default function App() {
 
                 <a 
                   href={checkoutUrl}
+                  onClick={trackCheckout}
                   className="w-full inline-flex flex-col items-center justify-center gap-1 px-6 py-5 bg-brand hover:bg-brand-hover text-white rounded-2xl aggressive-shadow transition-all transform hover:scale-[1.02] active:scale-[0.98] text-center"
                 >
                   <div className="flex items-center gap-2 text-xl md:text-2xl font-black uppercase tracking-tighter">
@@ -478,6 +477,7 @@ export default function App() {
             </p>
             <a 
               href={checkoutUrl}
+              onClick={trackCheckout}
               className="inline-flex items-center gap-2 text-brand hover:text-brand-hover font-black uppercase tracking-tighter text-lg md:text-xl group"
             >
               GARANTIR MEU ACESSO AGORA
