@@ -100,7 +100,21 @@ export default function App() {
     return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
   };
 
-  const checkoutUrl = "https://pay.cakto.com.br/3ba47md_870528";
+  const [checkoutUrl, setCheckoutUrl] = useState("https://pay.cakto.com.br/3ba47md_870528");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const baseUrl = "https://pay.cakto.com.br/3ba47md_870528";
+      const params = new URLSearchParams(window.location.search);
+      
+      // Adiciona identificação da LP
+      params.set("src", "lp1");
+      
+      const paramString = params.toString();
+      const finalUrl = paramString ? `${baseUrl}?${paramString}` : baseUrl;
+      setCheckoutUrl(finalUrl);
+    }
+  }, []);
 
   const trackCheckout = () => {
     if (typeof window !== "undefined" && (window as any).fbq) {
